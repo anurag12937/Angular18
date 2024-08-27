@@ -6,5 +6,6 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideHttpClient(),provideAnimations(),provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+  providers: [provideHttpClient(),provideAnimations(),
+    provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
 };

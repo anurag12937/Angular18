@@ -1,22 +1,22 @@
 <mat-toolbar color="primary">
-    <span>Contact Management</span>
-  </mat-toolbar>
-  <div>
-<form class="row g-3" [formGroup]="contactForm" (ngSubmit)="onSave()" >
-            <mat-form-field appearance="fill">
-                <mat-label>First Name</mat-label>
-                <input matInput formControlName="firstName">
-              </mat-form-field>
-              <mat-form-field appearance="fill">
-                <mat-label>last Name</mat-label>
-                <input matInput formControlName="lastName">
-              </mat-form-field>
-              <mat-form-field appearance="fill">
-                <mat-label>Email</mat-label>
-                <input matInput formControlName="email">
-              </mat-form-field>
-            <button mat-raised-button color="primary" type="submit">
-                Save
-              </button>
-</form>
+  <span>Contact Management</span>
+</mat-toolbar>
+<div>
+  <form class="row g-3" [formGroup]="contactForm" (ngSubmit)="onSave()">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>last Name</mat-label>
+      <input matInput formControlName="lastName">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">
+      Save
+    </button>
+  </form>
 </div>

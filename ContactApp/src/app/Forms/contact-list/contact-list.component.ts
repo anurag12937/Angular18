@@ -1,10 +1,10 @@
-import { ChangeDetectorRef, Component, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { FetchApiService } from '../../services/fetch-api.service';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { EditContactComponent } from '../edit-contact/edit-contact.component';
 
+// modal define
 export interface Contact {
   id: number;
   firstName: string;
@@ -15,24 +15,33 @@ export interface Contact {
 @Component({
   selector: 'app-contact-list',
   standalone: true,
-  imports: [MatTableModule, MatPaginator],
+  imports: [MatTableModule],
   templateUrl: './contact-list.component.html',
   styleUrl: './contact-list.component.css'
 })
+
 export class ContactListComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { this.getAllContacts();}
+  // Show column in mat table
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'actions'];
+  dataSource: Contact[] = [];
+
+  fetchApi = inject(FetchApiService) // fetch service
+
+  constructor(public dialog: MatDialog) {
+    this.getAllContacts();
+  }
+
   ngOnInit(): void {
     this.getAllContacts();
   }
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'actions'];
-  dataSource: Contact[] = [];
-  fetchApi = inject(FetchApiService)
+  // Fetch all contact details 
   getAllContacts() {
     this.fetchApi.getAllContact().subscribe((res: any) => {
       this.dataSource = res.contacts;
     });
   }
+  // update selected contact details
   editItem(Contact: any): void {
     const dialogRef = this.dialog.open(EditContactComponent, {
       width: '600px',
@@ -43,6 +52,8 @@ export class ContactListComponent implements OnInit {
       this.getAllContacts(); // Reload the contacts list after closing the dialog
     });
   }
+
+  // delete record from DB file
   deleteItem(Contact: any) {
     this.fetchApi.getDeleted(Contact.id).subscribe((res: any) => {
       if (res) {
