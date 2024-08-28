@@ -1,24 +1,26 @@
-<mat-toolbar color="primary">
-  <span>Update Contact Management</span>
+<mat-toolbar class="headingUpdate">
+  <span> Update</span>
 </mat-toolbar>
-<form class="row g-3" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-  <mat-form-field>
-    <mat-label>First Name</mat-label>
-    <input matInput formControlName="firstName">
+<div class="addForm">
+  <form class="row g-3" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName">
 
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Last Name</mat-label>
-    <input matInput formControlName="lastName">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName">
 
-  </mat-form-field>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Email</mat-label>
-    <input matInput formControlName="email">
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
 
-  <div mat-dialog-actions>
-    <button mat-raised-button color="primary" type="submit">Update</button>
-  </div>
-</form>
+    <div mat-dialog-actions>
+      <button class="popupAdd" mat-raised-button color="primary" type="submit">Update</button>
+    </div>
+  </form>
+</div>

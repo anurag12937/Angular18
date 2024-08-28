@@ -15,7 +15,7 @@ import { MatDialogRef } from '@angular/material/dialog';
     MatInputModule,
     MatToolbarModule,
     MatFormFieldModule,
-     CommonModule],
+    CommonModule],
   templateUrl: './add-contact.component.html',
   styleUrl: './add-contact.component.css'
 })
@@ -56,7 +56,6 @@ export class AddContactComponent {
     console.log('calling',);
     this.fetchApi.getAllContact().subscribe((res: any) => {
       this.dataSource = res.contacts;
-      console.log('Hi', res);
     });
   }
 }

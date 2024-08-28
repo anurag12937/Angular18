@@ -1,11 +1,11 @@
-<mat-toolbar color="primary">
-  <span>Contact Management</span>
+<mat-toolbar class="headingAdd">
+  <span>Add</span>
 </mat-toolbar>
-<div>
+<div class="addForm">
   <form class="row g-3" [formGroup]="contactForm" (ngSubmit)="onSave()">
     <mat-form-field appearance="fill">
       <mat-label>First Name</mat-label>
-      <input matInput formControlName="firstName">
+      <input matInput formControlName="firstName"> 
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>last Name</mat-label>
@@ -15,7 +15,7 @@
       <mat-label>Email</mat-label>
       <input matInput formControlName="email">
     </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">
+    <button class="popupAdd" mat-raised-button color="primary" type="submit">
       Save
     </button>
   </form>
